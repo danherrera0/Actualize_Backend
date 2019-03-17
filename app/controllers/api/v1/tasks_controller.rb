@@ -13,7 +13,7 @@ class Api::V1::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:user_id, :column_id, :completed, :content)
+    params.require(:task).permit(:user_id, :column_id, :completed, :content, :tasks_name, :task_id)
   end
 
 end
