@@ -1,6 +1,4 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :tasks_name
+  attributes :tasks_name, :id, :completed, :column_id, :user_id, :content, :tasks_name, :task_id
+
 end
-
-
-# attributes :id, :completed, :column_id, :user_id, :content, :tasks_name, :task_id
