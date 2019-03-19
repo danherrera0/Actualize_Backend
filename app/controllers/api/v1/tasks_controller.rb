@@ -13,7 +13,6 @@ class Api::V1::TasksController < ApplicationController
         }
       }
     end
-
     render json: @tasks, status: :ok
   end
 
@@ -22,14 +21,13 @@ class Api::V1::TasksController < ApplicationController
     render json: @task, status: :ok
   end
 
-
   def create
-    Task.create(task_params)
+    @task=Task.create(task_params)
     render json: @task, status: :ok
   end
 
   def destroy
-   Task.find(params[:id]).destroy
+   @task=Task.find(params[:id]).destroy
    render json: @task, status: :ok
  end
 
