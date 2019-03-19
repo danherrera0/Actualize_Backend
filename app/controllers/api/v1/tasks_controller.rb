@@ -17,9 +17,20 @@ class Api::V1::TasksController < ApplicationController
     render json: @tasks, status: :ok
   end
 
+  def show
+    @task = Task.find(params[:id])
+    render json: @task, status: :ok
+  end
+
+
   def create
     Task.create(task_params)
   end
+
+  def destroy
+   Task.find(params[:id]).destroy
+   render json: @task, status: :ok
+ end
 
   private
 
