@@ -25,6 +25,7 @@ class Api::V1::TasksController < ApplicationController
 
   def create
     Task.create(task_params)
+    render json: @task, status: :ok
   end
 
   def destroy
