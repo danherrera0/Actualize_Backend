@@ -18,11 +18,18 @@ class Api::V1::ColumnsController < ApplicationController
   def update
     @column = Column.find(params[:id])
     @column.update(column_params)
+
   end
 
   def show
     @column = Column.find(params[:id])
     render json: @column, status: :ok
+  end
+
+  private
+
+  def column_params
+    params.require(:column).permit(:id, :title, :column_name, :task_ids)
   end
 
 end
