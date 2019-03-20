@@ -15,12 +15,14 @@ class Api::V1::ColumnsController < ApplicationController
     render json: @columns, status: :ok
   end
 
-  def show
+  def update
     @column = Column.find(params[:id])
-
-    render json: @column, status: :ok
+    @column.update(column_params)
   end
 
-
+  def show
+    @column = Column.find(params[:id])
+    render json: @column, status: :ok
+  end
 
 end

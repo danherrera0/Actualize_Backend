@@ -26,6 +26,11 @@ class Api::V1::TasksController < ApplicationController
     render json: @task, status: :ok
   end
 
+  def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+  end
+
   def destroy
    @task=Task.find(params[:id]).destroy
    render json: @task, status: :ok
