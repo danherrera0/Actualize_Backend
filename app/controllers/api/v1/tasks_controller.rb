@@ -9,7 +9,8 @@ class Api::V1::TasksController < ApplicationController
           completed: task.completed,
           column_id: task.column_id,
           user_id: task.user_id,
-          content: task.content
+          content: task.content,
+          percentage: task.percentage
         }
       }
     end
@@ -39,7 +40,7 @@ class Api::V1::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:id, :user_id, :column_id, :completed, :content, :tasks_name, :task_id)
+    params.require(:task).permit(:id, :user_id, :column_id, :completed, :content, :tasks_name, :task_id, :percentage)
   end
 
 end
