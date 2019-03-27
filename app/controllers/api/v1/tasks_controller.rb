@@ -10,7 +10,6 @@ class Api::V1::TasksController < ApplicationController
           column_id: task.column_id,
           user_id: task.user_id,
           content: task.content,
-          percentage: task.percentage
         }
       }
     end
@@ -30,6 +29,7 @@ class Api::V1::TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
+    render json: @task, status: :ok
   end
 
   def destroy
@@ -40,7 +40,7 @@ class Api::V1::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:id, :user_id, :column_id, :completed, :content, :tasks_name, :task_id, :percentage)
+    params.require(:task).permit(:id, :user_id, :column_id, :completed, :content, :tasks_name, :task_id)
   end
 
 end
